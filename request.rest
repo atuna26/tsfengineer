@@ -1,0 +1,13 @@
+ GET http://127.0.0.1:3000/giris
+
+
+
+### NEW WORD POST
+POST http://127.0.0.1:3000/admin/sozluk/kelimeler/newWord
+Content-Type: application/json
+
+{
+    "wordName":"alperen",
+    "wordDesc":"123",
+    "author":"Alperen"
+}

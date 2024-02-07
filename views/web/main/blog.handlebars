@@ -1,0 +1,117 @@
+<section class="header-title">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>{{type}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="news-wraper">
+                    {{#each blog}}
+                    <div class="col-md-6">
+                        <div class="news-box">
+                            <div class="img-box">
+                                <img class="img-thumbnail" src="{{blogImage}}" />
+                            </div>
+                            <div class="text-box">
+                                <div class="header">
+                                    <h4>{{blogName}}</h4>
+                                    <p>
+                                        {{moment date}}
+                                    </p>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        {{toText blogDesc}}
+                                    </p>
+                                    <a href="/muhendislik-makina/blog/{{_id}}">Devamını oku</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside class="blog-info">
+                    <div class="search-box">
+                        <div class="form-group">
+
+                            <input class="form-control" placeholder="Ara" id="searchInput" oninput="newBlogSearch();"
+                                type="input" />
+                        </div>
+                    </div>
+                    <div class="category-widget">
+                        <div class="title">
+                            <h4>Kategoriler</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/muhendislik-makina/muhendislik">Mühendislik</a>
+                            </li>
+                            <li>
+                                <a href="/muhendislik-makina/vincler">Vinçler</a>
+                            </li>
+                            <li>
+                                <a href="/muhendislik-makina/raylar">Raylar</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="news-widget">
+                        <div class="title">
+                            <h4>Popüler Yazılar</h4>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY</a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail2.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail3.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instigram-widget">
+                        <div class="title">
+                            <h4>Text Widget</h4>
+                        </div>
+                        <p>
+                            Morbi tincidunt iaculis ipsum eget laoreet. Cras at finibus ante, posuere ornare ex. Mauris
+                            sollicitudin ornare ullamcorper. Donec in arcu purus. Phasellus ullamcorper.
+                        </p>
+
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

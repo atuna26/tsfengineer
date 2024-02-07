@@ -14,35 +14,42 @@
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/main/font-awesome/css/font-awesome.min.css">
     <!-- Owl carousel-->
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="/main/css/owl.carousel.css">
 
-    <link rel="stylesheet" href="css/owl.theme.default.css">
-    <link rel="stylesheet" href="css/style_hero.css">
-    <link rel="stylesheet" type="text/css" href="css/hover.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive .css" />
-
+    <link rel="stylesheet" href="/main/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/main/css/style_hero.css">
+    <link rel="stylesheet" type="text/css" href="/main/css/hover.css">
+    <link rel="stylesheet" type="text/css" href="/main/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/main/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/main/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/main/css/responsive .css" />
     <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/main/favicon.ico">
+    <link rel="apple-touch-icon" href="/main/apple-touch-icon.png">
 </head>
 
 <body>
-    {{>nav}}
+    {{>main/nav}}
     {{{body}}}
-    {{>footer}}
-    <script src="plugins/jquery.min.js"></script>
-    <script src="plugins/owl.carousel.min.js"></script>
+    {{>main/footer}}
+    <script src="/main/plugins/jquery.min.js"></script>
+    <script src="/main/plugins/owl.carousel.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <script src="plugins/bootstrap.min.js"></script>
-    <script src="OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script src="plugins/waypoints.min.js"></script>
-    <script src="plugins/jquery.counterup.min.js"></script>
-    <script src="plugins/theme.js"></script>
+    <script src="/main/plugins/bootstrap.min.js"></script>
+    <script src="/main/plugins/owl.carousel.min.js"></script>
+    <script src="/main/plugins/waypoints.min.js"></script>
+    <script src="/main/plugins/jquery.counterup.min.js"></script>
+    <script src="/main/plugins/theme.js"></script>
+    <script src="/main/myDoc/script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"></script>
+    <script src="/main/plugins/bootstrap.min.js"></script>
+    <script src="/main/plugins/map-helper.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key= AIzaSyC-AVuzYG1-KEYwHw0gLOmlFX2I2YBzZGw&callback=initMap"
+        type="text/javascript"></script>
 </body>
 
 </html>

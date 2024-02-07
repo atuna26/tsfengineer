@@ -1,0 +1,210 @@
+<section class="header-title">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>{{blog.blogCategory}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="news-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="left-wraper">
+
+                    <div class="news_one-single">
+                        <div class="img-box image">
+                            <img class="img-fluid img-thumbnail" src="{{blog.blogImage}}" alt="" />
+
+                        </div>
+                        <div class="text-box">
+                            <h4>{{blog.blogName}}</h4>
+                            <p>
+                                <a class="path" href=""><i class="fa fa-clock-o" aria-hidden="true"></i>{{moment Date}}
+                                </a> | {{!--<a class="path" href=""> <i class="fa fa-user" aria-hidden="true"></i>Mark
+                                    Vaugan
+                                </a> | --}} <a class="path" href=""> <i class="fa fa-tags"
+                                        aria-hidden="true"></i>Mechanical,Design </a>
+                                {{!-- |
+                                <a class="path" href=""> <i class="fa fa-comments-o" aria-hidden="true"></i>05
+                                    Comments</a> --}}
+                            </p>
+                            <div class="text">
+                                {{{blog.blogDesc}}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="share-box">
+                        <div class="col-md-6">
+                            <p>
+                                Bu yazıyı paylaş!
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="pull-right">
+                                <li>
+                                    <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href=""><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{!-- <div class="post-author">
+                        <div class="header">
+                            <h3>About the Author:</h3>
+                        </div>
+                        <div class="inner">
+                            <div class="img-box">
+                                <img src="img/author.jpg" />
+                            </div>
+                            <div class="text-box">
+                                <h4>Robert Davison</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
+                                    gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et,
+                                    interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare
+                                    nisi vitae.
+                                </p>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    <div class="comments">
+                        <div class="header">
+                            <h3>Yorumlar</h3>
+                        </div>
+                        {{!-- <div class="first-comment">
+                            <div class="media-left img-box"><img src="img/customer.jpg" /> </div>
+                            <div class="media-body text-box">
+                                <h5>Simona Shkrtel</h5>
+                                <p>Duis aute irure dolor in reprehenderit in vol uptate velit esse cillum dolore eu
+                                    fugiat nulla pari atur. Excepteur sint occaecat cupidatat non proid pent.</p>
+                                <p> Dec 09 2015 |<a href=""> reply</a> </p>
+                            </div>
+                        </div> --}}
+                    </div>
+
+                    <div class="contact-wraper-last">
+
+                        <div class="header">
+                            <h3>Yorum Yaz</h3>
+                        </div>
+                        <div class="inner">
+                            <form id="request-call-form" action="#" method="POST">
+                                <div class="col-md-6">
+
+                                    <input id="name" type="text" placeholder="İsim" name="name">
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <input id="email" type="text" placeholder="Email" name="email">
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" cols="40" rows="5" placeholder="Yorum"
+                                        id="inputComments"></textarea>
+
+
+
+
+
+
+
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <aside class="blog-info">
+                   <div class="category-widget">
+                        <div class="title">
+                            <h4>Kategoriler</h4>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/muhendislik-makina/muhendislik">Mühendislik</a>
+                            </li>
+                            <li>
+                                <a href="/muhendislik-makina/vincler">Vinçler</a>
+                            </li>
+                            <li>
+                                <a href="/muhendislik-makina/raylar">Raylar</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="news-widget">
+                        <div class="title">
+                            <h4>Popüler Yazılar</h4>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY</a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail2.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail3.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instigram-widget">
+                        <div class="title">
+                            <h4>Text Widget</h4>
+                        </div>
+                        <p>
+                            Morbi tincidunt iaculis ipsum eget laoreet. Cras at finibus ante, posuere ornare ex. Mauris
+                            sollicitudin ornare ullamcorper. Donec in arcu purus. Phasellus ullamcorper.
+                        </p>
+
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

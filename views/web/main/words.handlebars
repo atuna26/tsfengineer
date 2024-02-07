@@ -1,0 +1,95 @@
+<section class="header-title">
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>Sözlük</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="news-wraper">
+                    {{#each word}}
+                    <div class="col-md-4">
+                        <div class="news-box" style="border-top:1px solid #999999">
+                            <div class="text-box">
+                                <div class="header">
+                                    <h4 class="first-letter">{{wordName}}</h4>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        {{toText wordDesc}}
+                                    </p>
+                                    <a href="/sozluk/{{_id}}">İncele</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside class="blog-info">
+                    <div class="search-box">
+                        <div class="form-group">
+
+                            <input class="form-control" placeholder="Ara" type="input" id="searchInput"
+                                oninput="newSearch();" />
+                        </div>
+                    </div>
+                    <div class="news-widget">
+                        <div class="title">
+                            <h4>Popüler Kelimeler</h4>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY</a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail2.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <figure>
+                                <img src="img/blog-thumbnail3.jpg" alt="">
+                            </figure>
+                            <div class="text-box">
+                                <h5><a href=""> How Advanced Manufactoring is Transforming the FACTORY </a></h5>
+                                <p>
+                                    October 21, 2016
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instagram-widget">
+                        <div class="title">
+                            <h4>Text Widget</h4>
+                        </div>
+                        <p>
+                            Morbi tincidunt iaculis ipsum eget laoreet. Cras at finibus ante, posuere ornare ex. Mauris
+                            sollicitudin ornare ullamcorper. Donec in arcu purus. Phasellus ullamcorper.
+                        </p>
+
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
