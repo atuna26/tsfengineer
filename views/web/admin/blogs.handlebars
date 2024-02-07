@@ -46,12 +46,10 @@
                         <tr>
                             <td>{{@index}} </td>
                             <td>{{moment date}}</td>
-                            <td {{#if (eq blogCategory "Mühendislik" )}} class="text-primary" {{else if (eq
-                                blogCategory "Vinçler" )}} class="text-secondary" {{else}} class="text-warning" {{/if}}>
-                                {{blogCategory}} </td>
+                            <td>{{blogCategory.categoryNameTR}} </td>
                             <td>
                                 <div class="fw-semibold"><a href="">{{blogName}}</a></div>
-                                <div class="text-muted">{{{blogDesc}}}</div>
+                                <div class="text-muted">{{toText blogDesc}}</div>
                             </td>
                             <td>{{view}} </td>
                             <td class="text-end text-indigo"> <a href="">Düzenle</a></td>

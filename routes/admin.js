@@ -20,7 +20,7 @@ router.get("/sozluk/yeni-kelime", async (req,res)=>{
     res.render("web/admin/newWord",{layout:"panel"})
 })
 router.get("/yazilar/tum-yazilar",async(req,res)=>{
-    const blog = await Blog.find({}).lean();
+    const blog = await Blog.find({}).populate({path:"blogCategory", model:Category}).lean();
     res.render("web/admin/blogs",{layout:"panel",blog})
 })
 router.get("/yazilar/yeni-yazi",async (req,res)=>{

@@ -52,7 +52,7 @@ router.get("/sozluk/:id",async(req,res)=>{
 
 router.get("/muhendislik-makina/blog/:id", async (req,res)=>{
   const category = await Category.find({}).lean();
-  const blog = await Blog.findOne({_id:req.params.id}).lean()
+  const blog = await Blog.findOne({_id:req.params.id}).populate({path:"blogCategory", model:Category}).lean()
   res.render("web/main/singleBlog",{blog,category})
 })
 
