@@ -9,7 +9,7 @@
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Yazılar - <span class="fw-normal">Tüm Yazılar</span>
+                        Kategori - <span class="fw-normal">Tüm Kategoriler</span>
                     </h4>
 
                     
@@ -27,7 +27,7 @@
             <!-- Task manager table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Tüm Kelimeler</h5>
+                    <h5 class="mb-0">Tüm Kategoriler</h5>
                 </div>
 
                 <table class="table">
@@ -35,25 +35,22 @@
                         <tr>
                             <th>#</th>
                             <th>Tarih</th>
-                            <th>Kategori</th>
-                            <th>Açıklama</th>
-                            <th>Görüntülenme</th>
+                            <th>Kategori Adı Türkçe</th>
+                            <th>Kategori Adı İngilizce</th>
+                            <th>Kategori Adı Arapça</th>
+                            <th>Yazı Sayısı</th>
                             <th class="text-end"><i class="ph-pen"></i></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{#each blog}}
+                        {{#each category}}
                         <tr>
                             <td>{{@index}} </td>
                             <td>{{moment date}}</td>
-                            <td {{#if (eq blogCategory "Mühendislik" )}} class="text-primary" {{else if (eq
-                                blogCategory "Vinçler" )}} class="text-secondary" {{else}} class="text-warning" {{/if}}>
-                                {{blogCategory}} </td>
-                            <td>
-                                <div class="fw-semibold"><a href="">{{blogName}}</a></div>
-                                <div class="text-muted">{{{blogDesc}}}</div>
-                            </td>
-                            <td>{{view}} </td>
+                            <td>{{categoryNameTR}} </td>
+                            <td>{{categoryNameEN}} </td>
+                            <td>{{categoryNameAR}} </td>
+                            <td>{{blogCount}} </td>
                             <td class="text-end text-indigo"> <a href="">Düzenle</a></td>
                         </tr>
                         {{/each}}

@@ -23,8 +23,23 @@ router.get("/yazilar/tum-yazilar",async(req,res)=>{
     const blog = await Blog.find({}).lean();
     res.render("web/admin/blogs",{layout:"panel",blog})
 })
-router.get("/yazilar/yeni-yazi",(req,res)=>{
-    res.render("web/admin/newBlog",{layout:"panel"})
+router.get("/yazilar/yeni-yazi",async (req,res)=>{
+    const category = await Category.find({}).lean();
+    res.render("web/admin/newBlog",{layout:"panel",category})
+})
+
+router.get("/kategori/tum-kategoriler",async (req,res)=>{
+    const category = await Category.find({}).lean()
+    res.render("web/admin/categories",{layout:"panel",category})
+})
+
+router.post("/kategori/newCategory",async (req,res)=>{
+    Category.create({...req.body})
+    res.redirect("/admin/kategori/tum-kategoriler");
+})
+
+router.get("/kategori/yeni-kategori",async (req,res)=>{
+    res.render("web/admin/newCategory",{layout:"panel"})
 })
 
 router.get("/sorular/tum-sorular", async (req,res)=>{

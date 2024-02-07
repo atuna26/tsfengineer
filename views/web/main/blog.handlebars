@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="title">
-                <h2>{{type}}</h2>
+                <h2>{{categoryName}}</h2>
             </div>
         </div>
     </div>
@@ -51,15 +51,11 @@
                             <h4>Kategoriler</h4>
                         </div>
                         <ul>
+                            {{#each category}}
                             <li>
-                                <a href="/muhendislik-makina/muhendislik">Mühendislik</a>
+                                <a href="/muhendislik-makina/{{_id}}">{{categoryNameTR}}</a>
                             </li>
-                            <li>
-                                <a href="/muhendislik-makina/vincler">Vinçler</a>
-                            </li>
-                            <li>
-                                <a href="/muhendislik-makina/raylar">Raylar</a>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="news-widget">

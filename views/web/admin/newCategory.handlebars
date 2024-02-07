@@ -9,7 +9,7 @@
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Sözlük - <span class="fw-normal">Yeni Kelime</span>
+                        Kategori - <span class="fw-normal">Yeni Kategori</span>
                     </h4>
 
                     
@@ -27,58 +27,51 @@
             <!-- Task manager table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Yeni Kelime</h5>
+                    <h5 class="mb-0">Yeni Kategori</h5>
                 </div>
 
                 <div class="card-body">
-                    <p class="mb-4">Yeni kelime eklemek için aşağıdaki formu doldurunuz..</p>
+                    <p class="mb-4">Yeni kategori eklemek için aşağıdaki formu doldurunuz..</p>
 
                     <div class="mb-4">
-                        <form action="/admin/sozluk/kelimeler/newWord" method="POST">
+                        <form action="/admin/kategori/newCategory" method="POST">
 
-                            <div class="fw-bold border-bottom pb-2 mb-3">Kelime Bilgileri</div>
+                            <div class="fw-bold border-bottom pb-2 mb-3">Kategori Bilgileri</div>
 
                             <!-- Default input -->
                             <div class="row mb-3">
-                                <label class="col-form-label col-lg-3">Kelime</label>
+                                <label class="col-form-label col-lg-3">Kategori Adı Türkçe</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="wordName" class="form-control">
+                                    <input type="text" name="categoryNameTR" class="form-control">
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-form-label col-lg-3">Dil</label>
+                             <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Kategori Adı İngilizce</label>
                                 <div class="col-lg-9">
-                                    <select class="form-select" name="blogCategory">
-                                        <option disabled selected>Dil Seçiniz</option>
-                                        <option value="TR">Türkçe</option>
-                                        <option value="EN">İngilizce</option>
-                                        <option value="AR">Arapça</option>
-                                    </select>
+                                    <input type="text" name="categoryNameEN" class="form-control">
+                                </div>
+                            </div>
+                             <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Kategori Adı Arapça</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="categoryNameAR" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Tag</label>
                                 <div class="col-lg-9">
-                                   <input type="text" class="form-control" name="wordMetaTag" placeholder="Tagler arasına virgül koyunuz.">
+                                   <input type="text" class="form-control" name="categoryMetaTag" placeholder="Tagler arasına virgül koyunuz.">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Description</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="wordMetaDesc"
+                                    <input type="text" class="form-control" name="categoryMetaDesc"
                                         placeholder="Meta Açıklaması.">
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <div class="border-top">
-                                    <div class="quill-full" id="wordDesc">
-                                    </div>
-                                     <input type="hidden" name="wordDesc" id="quillText">
-                                </div>
-                            </div>
-
                             <div class="text-end">
-                                <button type="button" onclick="submitFormsss();" class="btn btn-primary">Oluştur<i
+                                <button type="submit" class="btn btn-primary">Oluştur<i
                                         class="ph-paper-plane-tilt ms-2"></i></button>
                             </div>
                         </form>

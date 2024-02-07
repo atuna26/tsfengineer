@@ -89,11 +89,9 @@
                             <li><a href="/muhendislik-makina">Mühendislik & Makina
                                 </a>
                                 <ul class="dropdown-submenu">
-
-                                    <li><a href="/muhendislik-makina/muhendislik">Mühendislik</a></li>
-                                    <li><a href="/muhendislik-makina/vincler">Vinçler</a></li>
-                                    <li><a href="/muhendislik-makina/raylar">Raylar</a></li>
-
+                                    {{#each category}}
+                                    <li><a href="/muhendislik-makina/{{_id}}">{{categoryNameTR}}</a></li>
+                                    {{/each}}
                                 </ul>
                             </li>
                             <li><a href="/hizmetlerimiz">Hizmetlerimiz</a>
