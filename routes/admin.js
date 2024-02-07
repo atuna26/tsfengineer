@@ -5,6 +5,7 @@ const path = require("path")
 const Word = require("../models/Word")
 const Blog = require("../models/Blog")
 const Question = require("../models/Question")
+const Category = require("../models/Category")
 const fileUpload = require("express-fileupload")
 
 router.get("/",(req,res)=>{

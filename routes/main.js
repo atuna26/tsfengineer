@@ -3,6 +3,7 @@ const router = express.Router();
 const Blog = require("../models/Blog")
 const Word = require("../models/Word")
 const Question = require("../models/Question")
+const Category = require("../models/Category")
 
 router.get("/", async (req,res)=>{
     res.render("web/main/index")
