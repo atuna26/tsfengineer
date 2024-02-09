@@ -7,9 +7,16 @@ const Blog = require("../models/Blog")
 const Question = require("../models/Question")
 const Category = require("../models/Category")
 const fileUpload = require("express-fileupload")
+const User = require("../models/User")
+const bcrypt = require("bcrypt")
+
 
 router.get("/",(req,res)=>{
     res.render("web/admin/index",{layout:"panel"})
+})
+
+router.get("/login",(req,res)=>{
+    res.render("web/admin/login",{layout:"panel"})
 })
 
 router.get("/sozluk/kelimeler", async (req,res)=>{
@@ -78,6 +85,17 @@ router.post("/sozluk/kelimeler/newWord", async (req,res)=>{
     Word.create({...req.body}).then(word=>{
         res.redirect("/admin/sozluk/kelimeler")
     })
+})
+
+
+router.post("/register", async (req,res)=>{
+    try{
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        await User.create({username:req.body.username,password:hashedPassword})
+    }catch(err){
+        console.log(err);
+        res.status(500).send("Hata. Yetkili ile iletişime geçiniz.")
+    }
 })
 
 module.exports = router;

@@ -11,6 +11,7 @@ const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
 const moment = require("moment");
 const fileUpload = require("express-fileupload");
+const bcrypt = require("bcrypt");
 // const dotenv = require("dotenv")
 // dotenv.config()
 // const openai = require("openai")
@@ -141,11 +142,19 @@ app.use(bodyParser.json());
 // app.use("/users", users)
 
 app.use((req, res, next) => {
-  const admin = require("./routes/admin");
-  app.use("/admin", admin);
-  const main = require("./routes/main");
-  app.use("/", main);
-  next();
+  if(req.path.startsWith("/admin")){
+    if(req.session.userId){
+      const admin = require("./routes/admin");
+      app.use("/admin", admin);
+      next();
+    }else{
+      res.redirect("/panele-giris")
+    }
+  }else{
+    const main = require("./routes/main");
+    app.use("/", main);
+    next();
+  }
 });
 
 app.listen(process.env.PORT || 3000);

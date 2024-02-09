@@ -1,6 +1,10 @@
- GET http://127.0.0.1:3000/giris
+ POST http://127.0.0.1:3000/admin/register
+Content-Type: application/json
 
-
+{
+    "username":"tsfEngineer.2023",
+    "password":"tonguc@tsfengineer.com"
+}
 
 ### NEW WORD POST
 POST http://127.0.0.1:3000/admin/sozluk/kelimeler/newWord
