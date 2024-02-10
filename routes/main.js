@@ -87,17 +87,97 @@ router.get("/muhendislik-makina/:id", async (req,res)=>{
 router.get("/muhendislik-makina", async (req, res) => {
   const category = await Category.find({}).lean();
     const blog = await Blog.find({}).lean();
-    const type = "Mühendislik & Makina";
-    let title = `${type} Makina Vinç Sistemleri Raylı Sistemler Imalat Ticaret Projelendirme`
-    res.render("web/main/blog", {blog:blog,type,category,title});
+    const categoryName = "Mühendislik & Makina";
+    let title = `${categoryName} Makina Vinç Sistemleri Raylı Sistemler Imalat Ticaret Projelendirme`
+    res.render("web/main/blog", {blog:blog,categoryName,category,title});
   });
 
-//ENGLISH PART
+// ! ENGLISH PART
+
 router.get("/en", async (req,res)=>{
   let title = "TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting"
   const category = await Category.find({}).lean();
     res.render("web/mainEN/index",{layout:"mainEN",category,title})
 })
+
+
+router.get("/corporate", async (req,res)=>{
+  let title = "TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting"
+  const category = await Category.find({}).lean();
+    res.render("web/mainEN/aboutUs",{layout:"mainEN",category,title})
+})
+
+router.get("/services", async (req,res)=>{
+  let title = "TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting"
+  const category = await Category.find({}).lean();
+  res.render("web/mainEN/services",{layout:"mainEN",category,title})
+})
+
+router.get("/contact", async (req,res)=>{
+  let title = "Contact - TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting"
+  const category = await Category.find({}).lean();
+  res.render("web/mainEN/contact",{layout:"mainEN",category,title})
+})
+
+
+router.get("/questions",async(req,res)=>{
+  let title = "Questions - TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting"
+  const category = await Category.find({}).lean();
+  const question = await Question.find({language:"EN"}).sort({questionName:1}).lean()
+  res.render("web/mainEN/questions",{layout:"mainEN",question,category,title})
+})
+
+router.get("/questions/:id",async(req,res)=>{
+  const question = await Question.findOne({_id:req.params.id}).lean()
+  const category = await Category.find({}).lean();
+  
+  let title = `${question.questionName} - TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting`
+  res.render("web/mainEN/singleQuestion",{layout:"mainEN",question,category,title})
+})
+
+router.get("/dictionary",async(req,res)=>{
+  const category = await Category.find({}).lean();
+  const word = await Word.find({language:"EN"}).sort({wordName:1}).lean()
+  let title = `TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting`
+  res.render("web/mainEN/words",{layout:"mainEN",word,category,title})
+})
+router.get("/dictionary/:id",async(req,res)=>{
+  const category = await Category.find({}).lean();
+  const word = await Word.findOne({_id:req.params.id}).lean()
+  let title = `What is ${word.wordName} ? TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting`
+  res.render("web/mainEN/singleWord",{layout:"mainEN",word,category,title})
+})
+
+router.get("/engineering-machinery/blog/:id", async (req,res)=>{
+  const category = await Category.find({}).lean();
+  const blog = await Blog.findOne({_id:req.params.id}).populate({path:"blogCategory", model:Category}).lean()
+  let title = `${blog.blogName}`
+  res.render("web/mainEN/singleBlog",{layout:"mainEN",blog,category,title})
+})
+
+
+router.get("/engineering-machinery/:id", async (req,res)=>{
+  const category = await Category.find({}).lean();
+  const categoryBlog = await Category.findOne({_id:req.params.id}).lean()
+  const categoryName=categoryBlog.categoryNameEN
+  let title = `${categoryName} TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting`
+  try{
+    const blog = await Blog.find({blogCategory:req.params.id,language:"EN"}).lean()
+    res.render("web/mainEN/blog",{layout:"mainEN",blog,category,categoryName,title})
+  }  catch(err){
+    res.send(err)
+  }
+})
+
+
+router.get("/engineering-machinery", async (req, res) => {
+  const category = await Category.find({}).lean();
+    const blog = await Blog.find({language:"EN"}).lean();
+    const categoryName = "Engineering & Machinery";
+    let title = `${categoryName} TSF Engineering Machinery Crane Systems Rail Systems Manufacturing Trade Projecting`
+    res.render("web/mainEN/blog", {layout:"mainEN",blog:blog,categoryName,category,title});
+  });
+
 
 
 

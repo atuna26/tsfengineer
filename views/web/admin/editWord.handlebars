@@ -9,7 +9,7 @@
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Kategori - <span class="fw-normal">Yeni Kategori</span>
+                        Sözlük - <span class="fw-normal">Kelime Düzenle</span>
                     </h4>
 
                     
@@ -27,51 +27,58 @@
             <!-- Task manager table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Yeni Kategori</h5>
+                    <h5 class="mb-0">Kelimeyi Düzenle</h5>
                 </div>
 
                 <div class="card-body">
-                    <p class="mb-4">Yeni kategori eklemek için aşağıdaki formu doldurunuz..</p>
+                    <p class="mb-4">Kelimeyi düzenleyin ve kaydedin.</p>
 
                     <div class="mb-4">
-                        <form action="/admin/kategoriler/newCategory" method="POST">
+                        <form action="/admin/sozluk/kelimeler/editWord/{{word._id}}" method="POST">
 
-                            <div class="fw-bold border-bottom pb-2 mb-3">Kategori Bilgileri</div>
+                            <div class="fw-bold border-bottom pb-2 mb-3">Kelime Bilgileri</div>
 
                             <!-- Default input -->
                             <div class="row mb-3">
-                                <label class="col-form-label col-lg-3">Kategori Adı Türkçe</label>
+                                <label class="col-form-label col-lg-3">Kelime</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="categoryNameTR" class="form-control">
+                                    <input type="text" name="wordName" value="{{word.wordName}}" class="form-control">
                                 </div>
                             </div>
-                             <div class="row mb-3">
-                                <label class="col-form-label col-lg-3">Kategori Adı İngilizce</label>
+                            <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Dil</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="categoryNameEN" class="form-control">
-                                </div>
-                            </div>
-                             <div class="row mb-3">
-                                <label class="col-form-label col-lg-3">Kategori Adı Arapça</label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="categoryNameAR" class="form-control">
+                                    <select class="form-select" name="language">
+                                        <option value="TR" {{#if (eq word.language "TR")}} selected {{/if}} >Türkçe</option>
+                                        <option value="EN" {{#if (eq word.language "EN")}} selected {{/if}} >İngilizce</option>
+                                        <option value="AR" {{#if (eq word.language "AR")}} selected {{/if}} >Arapça</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Tag</label>
                                 <div class="col-lg-9">
-                                   <input type="text" class="form-control" name="categoryMetaTag" placeholder="Tagler arasına virgül koyunuz.">
+                                    <input type="text" class="form-control" name="fwordMetaTag" value="{{word.wordMetaTag}}" placeholder="Tagler arasına virgül koyunuz.">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Description</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="categoryMetaDesc"
+                                    <input type="text" class="form-control" name="wordMetaDesc" value="{{word.wordMetaDesc}}"
                                         placeholder="Meta Açıklaması.">
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <div class="border-top">
+                                    <div class="quill-full" id="wordDesc">
+                                        {{{word.wordDesc}}}
+                                    </div>
+                                     <input type="hidden" name="wordDesc" id="quillText">
+                                </div>
+                            </div>
+
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Oluştur<i
+                                <button type="button" onclick="submitFormsss();" class="btn btn-primary">Oluştur<i
                                         class="ph-paper-plane-tilt ms-2"></i></button>
                             </div>
                         </form>

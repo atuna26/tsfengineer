@@ -51,7 +51,7 @@
                                 <div class="text-muted">{{{toText questionDesc}}}</div>
                             </td>
                             <td>{{view}} </td>
-                            <td class="text-end text-indigo"> <a href="">Düzenle</a></td>
+                            <td class="text-end text-indigo"> <a href="/admin/sorular/soru/{{_id}}">Düzenle</a> <form action="/admin/sorular/soru/delete/{{_id}}" method="post"><a class="text-danger" onclick="this.parentNode.submit()">Sil</a></form> </td>
                         </tr>
                         {{/each}}
                     </tbody>

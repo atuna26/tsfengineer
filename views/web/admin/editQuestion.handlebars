@@ -1,0 +1,100 @@
+<!-- /panel content -->
+<div class="content-wrapper">
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+        <!-- Page header -->
+        <div class="page-header page-header-light shadow">
+            <div class="page-header-content d-lg-flex">
+                <div class="d-flex">
+                    <h4 class="page-title mb-0">
+                        Sorular - <span class="fw-normal">Soru Düzenle</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- /page header -->
+
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Task manager table -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Soruyu Düzenle</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-4">Soruyu düzenleyin ve kaydedin.</p>
+
+                    <div class="mb-4">
+                        <form action="/admin/sorular/editQuestion/{{question._id}}" method="POST" enctype="multipart/form-data">
+
+                            <div class="fw-bold border-bottom pb-2 mb-3">Soru Bilgileri</div>
+
+                            <!-- Default input -->
+                            <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Soru</label>
+                                <div class="col-lg-9">
+                                    <input type="text" name="questionName" value="{{question.questionName}}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Dil</label>
+                                <div class="col-lg-9">
+                                    <select class="form-select" name="language">
+                                        <option value="TR" {{#if (eq question.language "TR")}} selected {{/if}}>Türkçe</option>
+                                        <option value="EN" {{#if (eq question.language "EN")}} selected {{/if}} >İngilizce</option>
+                                        <option value="AR" {{#if (eq question.language "AR")}} selected {{/if}} >Arapça</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Meta Tag</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" name="questionMetaTag" value="{{question.questionMetaTag}}"
+                                        placeholder="Tagler arasına virgül koyunuz.">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-form-label col-lg-3">Meta Description</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" name="questionMetaDesc" value="{{question.questionMetaDesc}}"
+                                        placeholder="Meta Açıklaması.">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="col-form-label">Cevap</label>
+                                <div class="border-top">
+                                    <div class="quill-full" id="questionDesc">
+                                        {{{question.questionDesc}}}
+                                    </div>
+                                    <input type="hidden" name="questionDesc" id="quillText">
+                                </div>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="button" onclick="submitFormsss();" class="btn btn-primary">Kaydet<i
+                                        class="ph-paper-plane-tilt ms-2"></i></button>
+                            </div>
+                        </form>
+                        <!-- /default input -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- /task manager table -->
+
+        </div>
+        <!-- /content area -->
+
+
+
+
+    </div>
+    <!-- /inner content -->
+
+</div>
+<!-- //panel content -->

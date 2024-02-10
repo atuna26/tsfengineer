@@ -35,17 +35,13 @@ router.get("/yazilar/yeni-yazi",async (req,res)=>{
     res.render("web/admin/newBlog",{layout:"panel",category})
 })
 
-router.get("/kategori/tum-kategoriler",async (req,res)=>{
+router.get("/kategoriler/tum-kategoriler",async (req,res)=>{
     const category = await Category.find({}).lean()
     res.render("web/admin/categories",{layout:"panel",category})
 })
 
-router.post("/kategori/newCategory",async (req,res)=>{
-    Category.create({...req.body})
-    res.redirect("/admin/kategori/tum-kategoriler");
-})
 
-router.get("/kategori/yeni-kategori",async (req,res)=>{
+router.get("/kategoriler/yeni-kategori",async (req,res)=>{
     res.render("web/admin/newCategory",{layout:"panel"})
 })
 
@@ -57,6 +53,118 @@ router.get("/sorular/tum-sorular", async (req,res)=>{
 router.get("/sorular/yeni-soru",async (req,res)=>{
     res.render("web/admin/newQuestion",{layout:"panel"})
 })
+
+// ! EDIT SECTION GET
+
+router.get("/sorular/soru/:id",async(req,res)=>{
+    const question = await Question.findOne({_id:req.params.id}).lean();
+    res.render("web/admin/editQuestion",{layout:"panel",question})
+})
+
+router.get("/kategoriler/kategori/:id",async(req,res)=>{
+    const category = await Category.findOne({_id:req.params.id}).lean();
+    res.render("web/admin/editCategory",{layout:"panel",category})
+})
+
+router.get("/sozluk/kelime/:id",async(req,res)=>{
+    const word = await Word.findOne({_id:req.params.id}).lean();
+    res.render("web/admin/editWord",{layout:"panel",word})
+})
+
+router.get("/yazilar/yazi/:id",async(req,res)=>{
+    const category = await Category.find({}).lean();
+    const blog = await Blog.findOne({_id:req.params.id}).lean();
+    res.render("web/admin/editBlog",{layout:"panel",blog,category})
+})
+
+// ! DELETE SECTION POST
+
+
+router.post("/sorular/soru/delete/:id",async(req,res)=>{
+    try{
+        await Question.findByIdAndDelete(req.params.id)
+        res.redirect("/admin/sorular/tum-sorular")
+    }catch(err){
+        res.status(500).send("Hata yetkili ile iletişime geçiniz:"+err)
+    }
+})
+
+router.post("/kategoriler/kategori/delete/:id",async(req,res)=>{
+    try{
+        await Category.findByIdAndDelete(req.params.id)
+        res.redirect("/admin/kategoriler/tum-kategoriler")
+    }catch(err){
+        res.status(500).send("Hata yetkili ile iletişime geçiniz:"+err)
+    }
+})
+
+router.post("/sozluk/kelime/delete/:id",async(req,res)=>{
+    console.log("wrok")
+    try{
+        await Word.findByIdAndDelete(req.params.id)
+        res.redirect("/admin/sozluk/kelimeler")
+    }catch(err){
+        res.status(500).send("Hata yetkili ile iletişime geçiniz:"+err)
+    }
+})
+
+router.post("/yazilar/yazi/delete/:id",async(req,res)=>{
+    try{
+        await Blog.findByIdAndDelete(req.params.id)
+        res.redirect("/admin/yazilar/tum-yazilar")
+    }catch(err){
+        res.status(500).send("Hata yetkili ile iletişime geçiniz:"+err)
+    }
+})
+
+
+// ! EDIT SECTION POST
+
+router.post("/kategoriler/editCategory/:id",async (req,res)=>{
+    let category = await Category.findOne({_id:req.params.id});
+    await Object.assign(category,req.body)
+    await category.save();
+    res.redirect("/admin/kategoriler/tum-kategoriler");
+})
+
+router.post("/sorular/editQuestion/:id",async (req,res)=>{
+    let question = await Question.findOne({_id:req.params.id});
+    await Object.assign(question,req.body)
+    await question.save();
+    res.redirect("/admin/sorular/tum-sorular");
+})
+router.post("/sozluk/kelimeler/editWord/:id",async (req,res)=>{
+    let word = await Word.findOne({_id:req.params.id});
+    await Object.assign(word,req.body)
+    await word.save();
+    res.redirect("/admin/sozluk/kelimeler");
+})
+
+router.post("/yazilar/editBlog/:id",async (req,res)=>{
+    let blog = await Blog.findOne({_id:req.params.id});
+    if(req.files && req.files.blogImage){
+        let image = req.files.blogImage;
+
+        // Dosya yükleme işlemi
+        await image.mv(path.resolve(__dirname,"../public/main/blogImages/", image.name));
+        await Object.assign(blog,{...req.body,blogImage:`/main/blogImages/${image.name}`})
+
+    }else{
+        await Object.assign(blog,req.body)
+    }
+    await blog.save();
+    res.redirect("/admin/yazilar/tum-yazilar");
+})
+
+
+
+// ! POST SECTION
+
+router.post("/kategoriler/newCategory",async (req,res)=>{
+    Category.create({...req.body})
+    res.redirect("/admin/kategoriler/tum-kategoriler");
+})
+
 
 router.post("/sorular/newQuestion",async (req,res)=>{
     await Question.create({...req.body})

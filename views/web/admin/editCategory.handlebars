@@ -9,7 +9,7 @@
             <div class="page-header-content d-lg-flex">
                 <div class="d-flex">
                     <h4 class="page-title mb-0">
-                        Kategori - <span class="fw-normal">Yeni Kategori</span>
+                        Kategori - <span class="fw-normal">Kategori Düzenle</span>
                     </h4>
 
                     
@@ -27,14 +27,14 @@
             <!-- Task manager table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Yeni Kategori</h5>
+                    <h5 class="mb-0">Kategoriyi Düzenle</h5>
                 </div>
 
                 <div class="card-body">
-                    <p class="mb-4">Yeni kategori eklemek için aşağıdaki formu doldurunuz..</p>
+                    <p class="mb-4">Kategoriyi düzenleyin ve kaydedin.</p>
 
                     <div class="mb-4">
-                        <form action="/admin/kategoriler/newCategory" method="POST">
+                        <form action="/admin/kategoriler/editCategory/{{category._id}}" method="POST">
 
                             <div class="fw-bold border-bottom pb-2 mb-3">Kategori Bilgileri</div>
 
@@ -42,36 +42,36 @@
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Kategori Adı Türkçe</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="categoryNameTR" class="form-control">
+                                    <input type="text" name="categoryNameTR" value="{{category.categoryNameTR}}" class="form-control">
                                 </div>
                             </div>
                              <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Kategori Adı İngilizce</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="categoryNameEN" class="form-control">
+                                    <input type="text" name="categoryNameEN" value="{{category.categoryNameEN}}" class="form-control">
                                 </div>
                             </div>
                              <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Kategori Adı Arapça</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="categoryNameAR" class="form-control">
+                                    <input type="text" name="categoryNameAR" value="{{category.categoryNameAR}}" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Tag</label>
                                 <div class="col-lg-9">
-                                   <input type="text" class="form-control" name="categoryMetaTag" placeholder="Tagler arasına virgül koyunuz.">
+                                   <input type="text" class="form-control" name="categoryMetaTag" value="{{category.categoryMetaTag}}" placeholder="Tagler arasına virgül koyunuz.">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-form-label col-lg-3">Meta Description</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="categoryMetaDesc"
+                                    <input type="text" class="form-control" name="categoryMetaDesc" value="{{category.categoryMetaDesc}}"
                                         placeholder="Meta Açıklaması.">
                                 </div>
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Oluştur<i
+                                <button type="submit" class="btn btn-primary">Düzenle<i
                                         class="ph-paper-plane-tilt ms-2"></i></button>
                             </div>
                         </form>

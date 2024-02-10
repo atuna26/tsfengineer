@@ -126,11 +126,11 @@
 									<td>{{moment date}}</td>
 					                <td>
 					                	<div class="fw-semibold"><a href="">{{wordName}}</a></div>
-					                	<div class="text-muted">{{{wordDesc}}}</div>
+					                	<div class="text-muted">{{toText wordDesc}}</div>
 					                </td>
 									<td>{{view}} </td>
 
-									<td class="text-end text-indigo"> <a href="">Düzenle</a></td>
+									<td class="text-end text-indigo"> <a href="/admin/sozluk/kelime/{{_id}}">Düzenle</a> <form action="/admin/sozluk/kelime/delete/{{_id}}" method="post"><a class="text-danger"  onclick="parentNode.submit()">Sil</a></form> </td>
 					            </tr>
 								{{/each}}
 							</tbody>

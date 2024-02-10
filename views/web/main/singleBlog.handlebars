@@ -143,16 +143,13 @@
                         <div class="title">
                             <h4>Kategoriler</h4>
                         </div>
+                        
                         <ul>
+                            {{#each category}}
                             <li>
-                                <a href="/muhendislik-makina/muhendislik">Mühendislik</a>
+                                <a href="/muhendislik-makina/{{_id}}">{{categoryNameTR}}</a>
                             </li>
-                            <li>
-                                <a href="/muhendislik-makina/vincler">Vinçler</a>
-                            </li>
-                            <li>
-                                <a href="/muhendislik-makina/raylar">Raylar</a>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="news-widget">
@@ -193,16 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="instigram-widget">
-                        <div class="title">
-                            <h4>Text Widget</h4>
-                        </div>
-                        <p>
-                            Morbi tincidunt iaculis ipsum eget laoreet. Cras at finibus ante, posuere ornare ex. Mauris
-                            sollicitudin ornare ullamcorper. Donec in arcu purus. Phasellus ullamcorper.
-                        </p>
-
-                    </div>
+                    
                 </aside>
             </div>
         </div>

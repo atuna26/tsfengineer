@@ -27,7 +27,7 @@
             <!-- Task manager table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Tüm Kelimeler</h5>
+                    <h5 class="mb-0">Tüm Yazılar</h5>
                 </div>
 
                 <table class="table">
@@ -52,7 +52,7 @@
                                 <div class="text-muted">{{toText blogDesc}}</div>
                             </td>
                             <td>{{view}} </td>
-                            <td class="text-end text-indigo"> <a href="">Düzenle</a></td>
+                            <td class="text-end text-indigo"><a href="/admin/yazilar/yazi/{{_id}}">Düzenle</a> <form action="/admin/yazilar/yazi/delete/{{_id}}" method="POST"> <a class="text-danger" onclick="parentNode.submit()">Sil</a></form></td>
                         </tr>
                         {{/each}}
                     </tbody>

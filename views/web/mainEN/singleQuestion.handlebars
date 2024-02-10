@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="title">
-                <h2>Sözlük</h2>
+                <h2>Questions</h2>
             </div>
         </div>
     </div>
@@ -16,26 +16,26 @@
 
                     <div class="news_one-single">
                         <div class="text-box">
-                            <h4>{{word.wordName}}</h4>
+                            <h4>{{question.questionName}}</h4>
                             <p>
                                 <a class="path" href=""><i class="fa fa-clock-o" aria-hidden="true"></i>{{moment Date}}
                                 </a> | {{!--<a class="path" href=""> <i class="fa fa-user" aria-hidden="true"></i>Mark
                                     Vaugan
                                 </a> | --}} <a class="path" href=""> <i class="fa fa-tags"
-                                        aria-hidden="true"></i>{{word.wordTag}}</a>
+                                        aria-hidden="true"></i>{{question.questionTag}}</a>
                                 {{!-- |
                                 <a class="path" href=""> <i class="fa fa-comments-o" aria-hidden="true"></i>05
                                     Comments</a> --}}
                             </p>
                             <div class="text">
-                                {{{word.wordDesc}}}
+                                {{{question.questionDesc}}}
                             </div>
                         </div>
                     </div>
                     <div class="share-box">
                         <div class="col-md-6">
                             <p>
-                                Bu yazıyı paylaş!
+                                Share this post!
                             </p>
                         </div>
                         <div class="col-md-6">
@@ -97,13 +97,13 @@
                     <div class="contact-wraper-last">
 
                         <div class="header">
-                            <h3>Yorum Yaz</h3>
+                            <h3>Write comment</h3>
                         </div>
                         <div class="inner">
                             <form id="request-call-form" action="#" method="POST">
                                 <div class="col-md-6">
 
-                                    <input id="name" type="text" placeholder="İsim" name="name">
+                                    <input id="name" type="text" placeholder="Name" name="name">
 
                                 </div>
                                 <div class="col-md-6">
@@ -113,7 +113,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" cols="40" rows="5" placeholder="Yorum"
+                                    <textarea class="form-control" cols="40" rows="5" placeholder="Comment"
                                         id="inputComments"></textarea>
 
 
@@ -135,19 +135,19 @@
             </div>
             <div class="col-md-3">
                 <aside class="blog-info">
-                   <div class="category-widget">
+                    <div class="category-widget">
                         <div class="title">
-                            <h4>Kategoriler</h4>
+                            <h4>Categories</h4>
                         </div>
                         {{#each category}}
-                            <li>
-                                <a href="/muhendislik-makina/{{_id}}">{{categoryNameTR}}</a>
-                            </li>
-                            {{/each}}
+                        <li>
+                            <a href="/engineering-machinery/{{_id}}">{{categoryNameEN}}</a>
+                        </li>
+                        {{/each}}
                     </div>
                     <div class="news-widget">
                         <div class="title">
-                            <h4>Popüler Yazılar</h4>
+                            <h4>Popular Articles</h4>
                         </div>
                         <div class="news-item">
                             <figure>
@@ -183,7 +183,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </aside>
             </div>
         </div>
